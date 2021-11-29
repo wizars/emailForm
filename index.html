@@ -48,11 +48,7 @@
         console.log(document.getElementById("emisor").value)
         var algo="";
         function Mandar() {
-            console.log("Emisor = "+document.getElementById("emisor").value);
-            console.log("Receptor = "+document.getElementById("receptor").value);
-            console.log("Asunto = "+document.getElementById("asunto").value);
-            console.log("Mensaje = "+document.getElementById("mensaje").value);
-
+      
          algo = Email.send({
           SecureToken: "b1e1e48b-f3ba-4293-8098-8129674af17a",
           To: document.getElementById("receptor").value,
