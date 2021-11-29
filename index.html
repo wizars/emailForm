@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <body>
+    <div class="cuerpo">
+      <h1>Miau!!!</h1>
+      <img src="cat.png" alt="">
+      <p>
+        Esta es una prueba de concepto del uso de <code>smtp.js</code>  para el envio de email desde la web.
+          Rellena los campos, pulsa enviar y luego mira en tu carpeta de SPAM!
+      </p>
+
+      <div class="bloque">
+        <label for="emisor">Email emisor: </label>
+        <input type="email" id="emisor" name="emisor" placeholder="Email emisor" value="wizars@gmail.com" required/>
+      </div>
+
+      <div class="bloque">
+        <label for="emisor">Email receptor:</label>
+        <input type="email" id="receptor" name="receptor" placeholder="Email receptor" value="wizars@gmail.com" required/>
+      </div>
+<div class="bloque">
+    <label for="asunto">Asunto:</label>
+    <input type="text" id="asunto" name="asunto" placeholder="Asunto" value="Test" />
+</div>
+<div class="bloque" id="bloque_mensaje">
+<label for="mensaje">Cuerpo del mensaje:</label>
+    <textarea
+    name="mensaje"
+    id="mensaje"
+    cols="30"
+    rows="5"
+    placeholder="Aqui el texto del mensaje"
+    >Test message</textarea>
+</div>
+<div class="bloque" id="bloque_boton">
+    <button onclick="Mandar()">Enviar</button>
+</div>
+</div>
+    <script>
+        console.log(document.getElementById("emisor").value)
+        var algo="";
+        function Mandar() {
+            console.log("Emisor = "+document.getElementById("emisor").value);
+            console.log("Receptor = "+document.getElementById("receptor").value);
+            console.log("Asunto = "+document.getElementById("asunto").value);
+            console.log("Mensaje = "+document.getElementById("mensaje").value);
+
+         algo = Email.send({
+          SecureToken: "b1e1e48b-f3ba-4293-8098-8129674af17a",
+          To: document.getElementById("receptor").value,
+          From: document.getElementById("emisor").value,
+          Subject: document.getElementById("asunto").value,
+          Body: document.getElementById("mensaje").value
+        }).then((message) => alert(message));
+      }
+      console.log(algo)
+    </script>
+  </body>
+</html>
